@@ -1,0 +1,28 @@
+// -------- 瀏覽器 --------
+
+$lgw: 1450px !default; //ld
+$mdw: 1000px !default; //sm
+$sdw: 750px !default; //md
+$ssw: 340px !default; //ss
+$smw: $ssw+140px !default; //ssm
+
+
+$breakpoints: ( 'ld': 'screen and (max-width: #{$lgw})', 'md': 'screen and (max-width: #{$sdw})', 'sm': 'screen and (max-width: #{$mdw})', 'ssm': 'screen and (max-width: #{$smw})','ss': 'screen and (max-width: #{$ssw})');
+@mixin respond-to($name) {
+    @media #{map-get($breakpoints, $name)} {
+        @content;
+    }
+}
+
+// px to rem - Desktop
+@function rem($px) {
+    @return $px / $font-size-default * 1rem;
+}
+
+// -------- 不顯示捲軸 --------
+
+@mixin scroll-hide {
+    &::-webkit-scrollbar { 
+        display: none;
+    }
+  }

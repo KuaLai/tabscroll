@@ -1,0 +1,128 @@
+@use '../basic/variables' as *;
+@use 'wrapper';
+@use "sass:meta";
+
+.tab-wrap {
+	height: $tab-wrap-height;
+	margin-bottom: 30px;
+	padding: $padding-default;
+	border-bottom: 1px solid $dark-gray;
+	background-color: $tab-wrap-bg;
+}
+
+.tab-content {
+	display: flex;
+	align-items: center;
+	max-width: $width-default;
+	height: 100%;
+	margin: 0 auto;
+	overflow-x: auto;
+	list-style: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	@include wrapper.mixin-scroll-hide;
+
+	&.scroll {
+		max-width: 1240px;
+	}
+
+	li {
+		display: flex;
+		min-width: $tab-width;
+		max-width: $tab-width;
+		height: 100%;
+		border-radius: 30px;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			background-image: linear-gradient(-67deg, rgba($white, .4) 0%, rgba($white, 0) 17%, rgba($white, 0) 83%, rgba($white, .4) 100%);
+		}
+
+		&.select {
+			background-color: $yellow;
+
+			a {
+				color: darken($dark-purple, .6);
+			}
+
+			&:hover {
+				background-image: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		padding: 0 20px;
+		color: $white;
+		white-space: nowrap;
+	}
+}
+
+.tab-button {
+	display: none;
+	position: relative;
+	max-width: $width-default;
+	margin: 0 auto;
+
+	&.show {
+        display: block;
+		@include wrapper.mixin-respond-to(sm){
+			display: none;
+		}
+	}
+
+	& > div {
+		position: absolute;
+		display: block;
+		height: $tab-wrap-height;
+		padding: 0 1.8rem;
+		transform: translate(0,-100%);
+		background: $light-purple;
+		cursor: pointer;
+		border-radius: 100%;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 1.2rem;
+			height: 1.2rem;
+			background-size: cover;	
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+		&:hover {
+			background: #E4930E;
+		}
+	}
+
+	&-prev {
+		left: 0;
+		top: 0;
+
+		&::before {
+			background: wrapper.icon-arrow-left("#fff") no-repeat center;
+		}
+	}
+
+	&-next {
+		right: 0;
+		top: 0;
+
+		&::before {
+			background: wrapper.icon-arrow-right("#fff") no-repeat center;
+
+		}
+	}
+
+	&-disabled {
+		background: #ccc !important;
+		opacity: 0.7;
+		pointer-events: none;
+	}
+}

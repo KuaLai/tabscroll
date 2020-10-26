@@ -1,0 +1,46 @@
+// 字型
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+$fontxm: arial,PMingLiU,'\65B0\7D30\660E\9AD4';
+$fontjh: arial,'Microsoft JhengHei','\5FAE\8EDF\6B63\9ED1\9AD4',PMingLiU,'\65B0\7D30\660E\9AD4';
+$fontyh: arial,'Microsoft YaHei','\5FAE\8F6F\96C5\9ED1',PMingLiU,'\65B0\7D30\660E\9AD4';
+$fontUti: 'Noto Sans TC','LiHei Pro',微軟正黑體,新細明體,sans-serif;
+
+// ****************************************** //
+
+$header-height: vmin(40px) !default;
+$font-size: 13px !default;
+$fontStyle: $fontUti !default;
+$bg: "../images/" !default;
+// $bg: "~@/assets/images/";
+$width-default: 1300px !default;
+$bg-color: #202020 !default;
+$text-color: #fff !default;
+$link-color: #f4f4f4 !default;
+$link-active: gold !default;
+$link-color-hover: gold !default;
+$main-color: #f5e4c2 !default;
+$footer-bg: #4a4a4a !default;
+$main-blue-2020: #0F4C81 !default;
+$main-yellow: gold !default;
+
+// 基本色彩設定
+$white:         #FFFFFF !default;
+$black:         #000000 !default;
+$gray:			#CCCCCC !default;
+$dark-gray:     #7B7B7B !default;
+$yellow: 		#E4930E !default;
+$dark-blue:     #0D102C !default;
+$light-purple:  #373C52 !default;
+$dark-purple:   #191C28 !default;
+
+// base-padding
+$padding-default: 20px !default;
+
+
+// ****************************************** //
+
+$back-arrow-color: #000 !default;
+$tab-wrap-height: 60px;
+$tab-wrap-bg: darken($dark-purple, .6);
+$tab-width: 200px;
