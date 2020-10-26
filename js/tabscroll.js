@@ -16,7 +16,10 @@ if (nav_width < ul_width) {
 
     gameTab.scroll(function () {
         var scrollVal = $(this).scrollLeft();
-        if (scrollVal === nav_amount * nav_item_width - gameTab.width()) {
+        var ul_width = gameTab[0].scrollWidth;
+        var width_amount = ul_width - gameTab.width();
+                
+        if (scrollVal >= width_amount) {
             btn_next.addClass(disabled_class);
             btn_prev.removeClass(disabled_class);
         } else {
@@ -36,8 +39,10 @@ if (nav_width < ul_width) {
 
 btn_prev.click(function () {
     var nowLeft = gameTab[0].scrollLeft;
+    var ul_width = gameTab[0].scrollWidth;
+	var width_amount = ul_width - gameTab.width();
 
-    if (nowLeft === 0 || nowLeft <= nav_item_width) {
+    if (nowLeft === 0 || nowLeft <= width_amount) {
         btn_prev.addClass(disabled_class);
         gameTab.animate({
             scrollLeft: nowLeft - nav_item_width
@@ -52,8 +57,10 @@ btn_prev.click(function () {
 
 btn_next.click(function () {
     var nowLeft = gameTab[0].scrollLeft;
+    var ul_width = gameTab[0].scrollWidth;
+	var width_amount = ul_width - gameTab.width();
 
-    if (nowLeft >= nav_amount * nav_item_width - gameTab.width()) {
+    if (nowLeft >= width_amount) {
         btn_next.addClass(disabled_class);
         gameTab.animate({
             scrollLeft: nowLeft + nav_item_width
